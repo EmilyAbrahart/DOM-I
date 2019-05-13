@@ -77,6 +77,18 @@ ctaH1.textContent = ctaObj.h1;
 // Header Button
 const ctaBttn = cta.querySelector('.cta-text button');
 ctaBttn.textContent = ctaObj.button;
+
+// RAINBOW BUTTON!
+ctaBttn.addEventListener('click', (event) => {
+  const red = Math.floor(Math.random() * 256);
+  const blue = Math.floor(Math.random() * 256);
+  const green = Math.floor(Math.random() * 256);
+
+  event.target.style.backgroundColor = `rgb(${red},${green},${blue})`;
+  event.target.style.color = 'white';
+  event.target.textContent = 'You clicked me!';
+});
+
 // Header Image
 const ctaImg = cta.querySelector('#cta-img');
 ctaImg.setAttribute('src', ctaObj['img-src']);
