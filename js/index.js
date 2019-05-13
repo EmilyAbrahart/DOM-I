@@ -47,10 +47,62 @@ const siteContent = {
 const logo = document.getElementById('logo-img');
 logo.setAttribute('src', siteContent.nav['img-src']);
 
-const navBar = document.querySelector('nav');
-const navLinks = navBar.querySelectorAll('a');
+const navLinks = document.querySelectorAll('nav a');
 const navObj = siteContent.nav;
 const navValues = Object.values(navObj);
 [...navLinks].forEach((link, index) => {
   link.textContent = navValues[index];
 });
+
+// Header
+const ctaObj = siteContent.cta;
+// Header H1
+const cta = document.querySelector('section.cta');
+const ctaH1 = cta.querySelector('h1');
+ctaH1.textContent = ctaObj.h1;
+// Header Button
+const ctaBttn = cta.querySelector('.cta-text button');
+ctaBttn.textContent = ctaObj.button;
+// Header Image
+const ctaImg = cta.querySelector('#cta-img');
+ctaImg.setAttribute('src', ctaObj['img-src']);
+
+// Main Content
+const mainContObj = siteContent['main-content'];
+// Creating object without image element
+const mainContValues = Object.values(mainContObj).filter((element, index) => index !== 4);
+
+// Filling in main-content h4s
+// Filtering for h4 values
+const mainContH4Values = mainContValues.filter((element, index) => index % 2 === 0);
+const mainContH4Elements = document.querySelectorAll('.main-content h4');
+// Assigning h4 values to h4 elements
+[...mainContH4Elements].forEach((element, index) => {
+  element.textContent = mainContH4Values[index];
+});
+
+// Filling in main-content ps
+// Filtering for p values
+const mainContPValues = mainContValues.filter((element, index) => index % 2 === 1);
+const mainContPElements = document.querySelectorAll('.main-content p');
+// Assigning p values to p elements
+[...mainContPElements].forEach((element, index) => {
+  element.textContent = mainContPValues[index];
+});
+
+// Middle img
+const midImg = document.querySelector('#middle-img');
+midImg.setAttribute('src', mainContObj['middle-img-src']);
+
+
+// Contact
+const contactObj = siteContent.contact;
+const contactValues = Object.values(contactObj);
+const contactElements = document.querySelector('.contact');
+// Assign text content to each of the elements inside section.contact
+[...contactElements.children].forEach((element, index) => {
+  element.textContent = contactValues[index];
+});
+
+const footer = document.querySelector('footer p');
+footer.textContent = siteContent.footer.copyright;
