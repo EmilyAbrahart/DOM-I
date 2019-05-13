@@ -46,13 +46,27 @@ const siteContent = {
 // Example: Update the img src for the logo
 const logo = document.getElementById('logo-img');
 logo.setAttribute('src', siteContent.nav['img-src']);
-
-const navLinks = document.querySelectorAll('nav a');
+const navBar = document.querySelector('nav');
+const navLinks = navBar.querySelectorAll('a');
 const navObj = siteContent.nav;
 const navValues = Object.values(navObj);
 [...navLinks].forEach((link, index) => {
   link.textContent = navValues[index];
+  link.style.color = 'green'; // change link font colour to green.
 });
+
+// Add 2 elements to the nav bar
+const BestLink = document.createElement('a');
+BestLink.textContent = 'Best Link';
+BestLink.setAttribute('href', '#');
+BestLink.setAttribute('style', 'color : green');
+navBar.prepend(BestLink);
+
+const WorstLink = document.createElement('a');
+WorstLink.textContent = 'Worst Link';
+WorstLink.setAttribute('href', '#');
+WorstLink.setAttribute('style', 'color : green');
+navBar.appendChild(WorstLink);
 
 // Header
 const ctaObj = siteContent.cta;
@@ -93,7 +107,6 @@ const mainContPElements = document.querySelectorAll('.main-content p');
 // Middle img
 const midImg = document.querySelector('#middle-img');
 midImg.setAttribute('src', mainContObj['middle-img-src']);
-
 
 // Contact
 const contactObj = siteContent.contact;
