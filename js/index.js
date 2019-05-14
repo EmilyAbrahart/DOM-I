@@ -73,7 +73,8 @@ const ctaObj = siteContent.cta;
 // Header H1
 const cta = document.querySelector('section.cta');
 const ctaH1 = cta.querySelector('h1');
-ctaH1.textContent = ctaObj.h1;
+ctaH1.textContent = 'DOM \r\n IS \r\n AWESOME';
+ctaH1.setAttribute('style', 'white-space: pre;');
 // Header Button
 const ctaBttn = cta.querySelector('.cta-text button');
 ctaBttn.textContent = ctaObj.button;
